@@ -11,6 +11,7 @@ import GoogleMap_ from '@/components/GoogleMap_';
 import { BusinessListContext } from '@/context/BusinessListContext';
 import { SelectedBusinessContext } from '@/context/SelectedBusinessContext';
 import BusinessToast from '@/components/BusinessToast';
+import Jumbotron from '@/components/Jumbotron';
 
 export default function Home() {
    const [businessList, setBusinessList] = useState([]);
@@ -32,28 +33,35 @@ export default function Home() {
       });
    };
    return (
-      <div className="flex">
-         <SelectedBusinessContext.Provider value={{ selectedBusiness, setSelectedBusiness }}>
-            <BusinessListContext.Provider value={{ businessList, setBusinessList }}>
-               {/* <SideNavBar /> */}
-               <div className="grid grid-cols-1 md:grid-cols-2 px-6 md:px-10 w-full mt-10 gap-8">
-                  <div>
-                     {/* Search */}
-                     <SearchBar />
-                     {/* Category */}
-                     <CategoryList setSelectedCategory={(category) => getNearByPlace(category)} />
-                     {/* Buisness list */}
-                     <BusinessList businessListData={businessList} />
-                  </div>
+      <>
+         <div className="bg-gradient-to-r from-purple-400 to-blue-300 text-white">
+            <div className="flex">
+               <Jumbotron />
+            </div>
+            <div className="flex">
+               <SelectedBusinessContext.Provider value={{ selectedBusiness, setSelectedBusiness }}>
+                  <BusinessListContext.Provider value={{ businessList, setBusinessList }}>
+                     {/* <SideNavBar /> */}
+                     <div className="grid grid-cols-1 md:grid-cols-2 px-6 md:px-10 w-full mt-10 gap-8">
+                        <div>
+                           {/* Search */}
+                           <SearchBar />
+                           {/* Category */}
+                           <CategoryList setSelectedCategory={(category) => getNearByPlace(category)} />
+                           {/* Buisness list */}
+                           <BusinessList businessListData={businessList} />
+                        </div>
 
-                  {/* Google Map */}
-                  <div className="order-first md:order-last">
-                     <GoogleMap_ />
-                     <BusinessToast userLocation={userLocation} />
-                  </div>
-               </div>
-            </BusinessListContext.Provider>
-         </SelectedBusinessContext.Provider>
-      </div>
+                        {/* Google Map */}
+                        <div className="order-first md:order-last">
+                           <GoogleMap_ />
+                           <BusinessToast userLocation={userLocation} />
+                        </div>
+                     </div>
+                  </BusinessListContext.Provider>
+               </SelectedBusinessContext.Provider>
+            </div>
+         </div>
+      </>
    );
 }

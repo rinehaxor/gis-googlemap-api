@@ -33,7 +33,7 @@ function BusinessList({ businessListData }) {
                      strokeWidth={1.5}
                      onClick={() => setCount(count - 3)}
                      stroke="currentColor"
-                     className="w-10 h-10 p-2 text-gray-400 hover:text-blue-500 hover:bg-blue-100 cursor-pointer rounded-lg"
+                     className="w-10 h-10 p-2 text-black hover:text-blue-500 hover:bg-blue-100 cursor-pointer rounded-lg"
                   >
                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                   </svg>
@@ -45,7 +45,7 @@ function BusinessList({ businessListData }) {
                   strokeWidth={1.5}
                   stroke="currentColor"
                   onClick={() => setCount(count + 3)}
-                  className="w-10 h-10 p-2 text-gray-400 hover:text-blue-500 hover:bg-blue-100 cursor-pointer rounded-lg"
+                  className="w-10 h-10 p-2 text-black hover:text-blue-500 hover:bg-blue-100 cursor-pointer rounded-lg"
                >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                </svg>
@@ -61,7 +61,7 @@ function BusinessList({ businessListData }) {
                         <div
                            key={index}
                            className={`cursor-pointer rounded-2xl
-                        ${selectedBusiness.name == business.name ? 'bg-blue-200' : null}`}
+                        ${selectedBusiness.name == business.name ? 'bg-purple-200' : null}`}
                            onClick={() => setSelectedBusiness(business)}
                         >
                            <BusinessItem business={business} />

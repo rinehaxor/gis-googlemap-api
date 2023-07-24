@@ -12,7 +12,7 @@ function SearchBar() {
    };
    return (
       <div
-         className="flex gap-3 bg-blue-100
+         className="flex gap-3 bg-white
      p-3 rounded-xl items-center"
       >
          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-blue-400">
